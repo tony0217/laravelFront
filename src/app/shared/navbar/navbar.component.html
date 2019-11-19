@@ -1,0 +1,39 @@
+<header class="topbar">
+    <nav class="navbar top-navbar navbar-expand-md navbar-light">
+        <!-- ============================================================== -->
+        <!-- Logo -->
+        <!-- ============================================================== -->
+        <div class="navbar-header">
+            <a class="navbar-brand" [routerLink]="['/']">
+                <b>
+                    <img src="../assets/images/logo-icon2.png" class="img-fluid" width="70"/>
+                </b>
+                <!--End Logo icon -->
+                <span class="mt-1" style="color:#006599;">BVentures</span> </a>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Logo -->
+        <!-- ============================================================== -->
+        <div class="navbar-collapse">
+            <!-- ============================================================== -->
+            <!-- toggle and nav items -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav mr-auto">
+
+
+            </ul>
+            <!-- ============================================================== -->
+            <!-- User profile and search -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav my-lg-0">
+                <!-- ============================================================== -->
+                <!-- Search -->
+                <!-- ============================================================== -->
+                <li class="nav-item hidden-xs-down"> <a class="nav-link hidden-sm-down waves-effect" [routerLink]="['/form']" routerLinkActive="waves-dark"  > <i class="icon-plus">Add Customer </i> </a>  </li>
+                <li class="nav-item hidden-xs-down"> <a class="nav-link hidden-sm-down waves-effect "  [routerLink]="['/details']" routerLinkActive="waves-dark"  > <i class="icon-people">Customer Management</i> </a>  </li>
+
+
+            </ul>
+        </div>
+    </nav>
+</header>
