@@ -1,191 +1,182 @@
 <div class="preloader">
   <div class="loader">
-      <div class="loader__figure"></div>
-      <p class="loader__label">BVentures</p>
+    <div class="loader__figure"></div>
+    <p class="loader__label">BVentures</p>
   </div>
 </div>
 
-  <div class="row">
-      <div class="col-12">
-          <div class="card">
-              <div class="card-body">
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="ribbon-wrapper card">
+          <h4 class="ribbon ribbon-bookmark ribbon-info">CUSTOMER MANAGEMENT</h4>
+          <h6 class="card-subtitle"> Data Customer</h6>
+        </div>
 
+        <div *ngIf="customerLength" class="table-responsive">
 
-                      <div class="ribbon-wrapper card">
-                          <h4 class="ribbon ribbon-bookmark ribbon-info">CUSTOMER MANAGEMENT</h4>
-                          <h6 class="card-subtitle"> Data Customer</h6>
-                      </div>
+          <div class="col-3 ml-auto pb-1">
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-search"></i></div>
 
-                  <div *ngIf="customerLength" class="table-responsive">
+              <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchData"
+                [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
 
-                      <div class="col-3 ml-auto pb-1">
-                          <div class="input-group">
-                              <div class="input-group-addon"><i class="ti-search"></i></div>
+          <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0"
+            width="100%">
+            <thead>
+              <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Creation_date</th>
+                <th>Update_date</th>
+                <th class="text-nowrap">Acction</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Creation_date</th>
+                <th>Update_date</th>
+                <th class="text-nowrap">Acction</th>
+              </tr>
+            </tfoot>
+            <tbody>
 
-                               <input type="text" class="form-control" placeholder="Search"[(ngModel)]="searchData" [ngModelOptions]="{standalone: true}">
-                          </div>
-                      </div>
-
-                      <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                          <thead>
-                              <tr>
-                                  <th>FirstName</th>
-                                  <th>LastName</th>
-                                  <th>Email</th>
-                                  <th>Creation_date</th>
-                                  <th>Update_date</th>
-                                  <th class="text-nowrap">Acction</th>
-                              </tr>
-                          </thead>
-                          <tfoot>
-                              <tr>
-                                  <th>FirstName</th>
-                                  <th>LastName</th>
-                                  <th>Email</th>
-                                  <th>Creation_date</th>
-                                  <th>Update_date</th>
-                                  <th class="text-nowrap">Acction</th>
-                              </tr>
-                          </tfoot>
-                          <tbody>
-
-                              <tr *ngFor="let customer of customerList| filter:searchData |paginate: {
+              <tr *ngFor="let customer of customerList| filter:searchData |paginate: {
                                 itemsPerPage: 4,
                                 currentPage: p };let i = index">
 
-                                  <td>{{customer.firstname|uppercase}}</td>
-                                  <td>{{customer.lastname|uppercase}}</td>
-                                  <td>{{customer.email}}</td>
-                                  <td>{{customer.created|date:'MMM d y h:mm:ss a'}}</td>
-                                  <td>{{customer.modified|date:'MMM d y h:mm:ss a'}}</td>
-                                  <td class="text-nowrap">
-                                      <a (click)="selectCustomer(customer)" data-toggle="modal" data-target="#responsive-modal"> <i
-                                          class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                <td>{{customer.firstname|uppercase}}</td>
+                <td>{{customer.lastname|uppercase}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.created|date:'MMM d y h:mm:ss a'}}</td>
+                <td>{{customer.modified|date:'MMM d y h:mm:ss a'}}</td>
+                <td class="text-nowrap">
+                  <a (click)="selectCustomer(customer)" data-toggle="modal" data-target="#responsive-modal"> <i
+                      class="fa fa-pencil text-inverse m-r-10"></i> </a>
 
-                                      <a (click)="selectCustomer(customer)" data-toggle="modal" data-target="#exampleModal"> <i
-                                          class="fa fa-close text-danger"></i> </a>
-                                    </td>
+                  <a (click)="selectCustomer(customer)" data-toggle="modal" data-target="#exampleModal"> <i
+                      class="fa fa-close text-danger"></i> </a>
+                </td>
+              </tr>
+            </tbody>
 
-                              </tr>
-
-
-                          </tbody>
-
-                      </table>
-                      <div class=" col-md-1 col-xs-12 ml-auto ">
-                        <span class="text-muted font-weight-light" *ngIf="customerLength">{{customerLength}} Results</span>
-                      </div>
-
-                      <div class="col-md-4  col-xs-6 mx-auto" >
-                        <pagination-controls
-                        directionLinks="true"
-                        responsive="true"
-                        (pageChange)="p = $event"></pagination-controls>
-                      </div>
-
-
-
-
-                  </div>
-
-                    <div *ngIf="customerLength== 0" class="col-3 mx-auto p-5"><h1>No Results</h1> </div>
-              </div>
+          </table>
+          <div class=" col-md-1 col-xs-12 ml-auto ">
+            <span class="text-muted font-weight-light" *ngIf="customerLength">{{customerLength}} Results</span>
           </div>
 
+          <div class="col-md-4  col-xs-6 mx-auto">
+            <pagination-controls directionLinks="true" responsive="true" (pageChange)="p = $event">
+            </pagination-controls>
+          </div>
+        </div>
+
+        <div *ngIf="customerLength== 0" class="col-3 mx-auto p-5">
+          <h1>No Results</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="ribbon ribbon-bookmark ribbon-info">Update Customer</h4>
+        <button type="button" class="close ml-auto" data-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+      <div class="modal-body">
+        <form class="form p-t-20" [formGroup]='formCustomerUpdate'
+          (ngSubmit)="upDateCustomer(id,firstName, lastName, email)">
+
+          <div class="form-group">
+            <label for="exampleInputuname">FirstName <span class="text-danger">*</span></label>
+            <div class="input-group controls">
+              <div class="input-group-addon"><i class="ti-user"></i></div>
+              <input [value]="firstName" formControlName="firstName" [(ngModel)]="firstName" type="text"
+                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" class="form-control"
+                placeholder="FirstName">
+              <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputuname">LastName </label>
+            <div class="input-group ">
+              <div class="input-group-addon"><i class="ti-user"></i></div>
+              <input [value]="lastName" formControlName="lastName" [(ngModel)]="lastName" type="text"
+                class="form-control" placeholder="LastName">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address<span class="text-danger">*</span></label>
+            <div class="input-group controls">
+              <div class="input-group-addon"><i class="ti-email"></i></div>
+              <input [value]="email" formControlName="email" [(ngModel)]="email" type="email"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" class="form-control" placeholder="Enter email"
+                required>
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <re-captcha (resolved)="resolved($event)" siteKey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></re-captcha>
+            <div *ngIf="captchaResponse==''">
+              <div *ngIf="captchaResponse==''"><span style="color:red">re-captcha is required </span> </div>
+            </div>
+
+
+          </div>
+          <div class="modal-footer">
+
+            <button (click)="onReset()" type="button" class="btn btn-inverse waves-effect waves-light"
+              data-dismiss="modal">Close</button>
+            <button type="submit" class="tst1 btn btn-info waves-effect waves-light m-r-10">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body ribbon-wrapper card">
+
+        <div class="ribbon ribbon-bookmark ribbon-danger">Delete {{firstName}} ?</div>
+        <p class="ribbon-content"> Are you sure you want to delete?</p>
+
+        <div class="row">
+
+          <div class="col-12 ml-auto">
+            <button (click)="deleteCustomer(id)" type="button" class="tst4 btn btn-danger">Delete</button>
+          </div>
+          <hr>
+          <div class="col-3 ml-auto ">
+            <button type="button" class="btn btn-inverse waves-effect waves-light" data-dismiss="modal">Close</button>
+
+          </div>
+        </div>
 
       </div>
+    </div>
   </div>
-
-              <div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                  <div class="modal-dialog">
-                      <div class="modal-content">
-                          <div class="modal-header">
-
-
-                              <h4 class="ribbon ribbon-bookmark ribbon-info">Update Customer</h4>
-                              <button type="button" class="close ml-auto" data-dismiss="modal" aria-hidden="true">×</button>
-                          </div>
-                          <div class="modal-body">
-                              <form class="form p-t-20" [formGroup]='formCustomerUpdate'  (ngSubmit)="upDateCustomer(customerSelect.id,firstName, lastName, email)" >
-
-                                  <div class="form-group">
-                                      <label for="exampleInputuname">FirstName <span class="text-danger">*</span></label>
-                                      <div class="input-group controls">
-                                          <div class="input-group-addon"><i class="ti-user"></i></div>
-                                          <input [value]="firstname"  formControlName="firstName"  [(ngModel)]="firstName"  type="text"[ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"  class="form-control"  placeholder="FirstName" >
-                                          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                                            <div *ngIf="f.firstName.errors.required">First Name is required</div>
-                                        </div>
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="exampleInputuname">LastName </label>
-                                      <div class="input-group ">
-                                          <div class="input-group-addon"><i class="ti-user"></i></div>
-                                          <input [value]="lastname" formControlName="lastName"  [(ngModel)]="lastName"  type="text"  class="form-control"  placeholder="LastName" >
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="exampleInputEmail1">Email address<span class="text-danger">*</span></label>
-                                      <div class="input-group controls">
-                                          <div class="input-group-addon"><i class="ti-email"></i></div>
-                                          <input [value]="email" formControlName="email"  [(ngModel)]="email"  type="email"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" class="form-control"  placeholder="Enter email" required>
-                                          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                                            <div *ngIf="f.email.errors.required">Email is required</div>
-                                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
-                                          </div>
-                                      </div>
-                                  </div>
-
-                                  <div class="form-group">
-                                    <re-captcha (resolved)="resolved($event)" siteKey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></re-captcha>
-                                    <div *ngIf="captchaResponse==''" >
-                                      <div *ngIf="captchaResponse==''"><span style="color:red">re-captcha is required </span> </div>
-                                 </div>
-
-
-                                  </div>
-                                  <div class="modal-footer">
-
-                                      <button (click)="onReset()" type="button" class="btn btn-inverse waves-effect waves-light" data-dismiss="modal">Close</button>
-                                      <button  type="submit"  class="tst1 btn btn-info waves-effect waves-light m-r-10">Update</button>
-                                  </div>
-
-
-                              </form>
-
-                          </div>
-
-                      </div>
-                  </div>
-              </div>
-
-
-              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
-                  <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-
-                          <div class="modal-body ribbon-wrapper card">
-
-                                  <div class="ribbon ribbon-bookmark ribbon-danger">Delete {{customerSelect.firstname}} ?</div>
-                                  <p class="ribbon-content">  Are you sure you want to delete?</p>
-
-                                  <div class="row">
-
-                                        <div class="col-12 ml-auto">
-                                            <button  (click)="deleteCustomer(customerSelect.id)" type="button" class="tst4 btn btn-danger">Delete</button>
-                                        </div>
-                                        <hr>
-                                        <div class="col-3 ml-auto ">
-                                            <button type="button" class="btn btn-inverse waves-effect waves-light"  data-dismiss="modal">Close</button>
-
-                                        </div>
-                                  </div>
-
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <!-- /.modal -->
-
-
+</div>
+<!-- /.modal -->

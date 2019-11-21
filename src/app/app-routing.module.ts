@@ -17,11 +17,12 @@ const routes: Routes = [
     {path:'form', component: RegisterFormComponent},
 
 
-    {path:'',redirectTo:'/dashboard' , pathMatch: 'full'},
+    {path:'',redirectTo:'/details' , pathMatch: 'full'},
+    {path:'**', component: NotFound404Component},
   ]
 },
 
-{path:'**', component: NotFound404Component},
+
 
 ];
 

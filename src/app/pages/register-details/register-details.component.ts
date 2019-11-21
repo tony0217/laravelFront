@@ -6,7 +6,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
 import { Router } from '@angular/router';
 
-
 declare function init_plugins();
 declare function toastr();
 
@@ -19,11 +18,12 @@ declare function toastr();
 })
 export class RegisterDetailsComponent implements OnInit {
 
-
+  // vars
   customerList: any;
   customerLength: number;
-  customerSelect: any[] = [{}];
+  customerSelect: any[] = [];
   p: number = 1;
+  id :number;
   searchData: string;
   firstName: string;
   lastName: string;
@@ -44,8 +44,11 @@ export class RegisterDetailsComponent implements OnInit {
     });
 
   }
+
+  // return validator
   get f() { return this.formCustomerUpdate.controls; }
 
+  // get list customers
   getCustomers(): void {
     this._RegisterDetailsService.getcustomers().subscribe(result => {
       this.customerList = result;
@@ -57,8 +60,10 @@ export class RegisterDetailsComponent implements OnInit {
     );
   }
 
+  // select a customer in list
   selectCustomer(customer: any) {
     this.customerSelect = customer;
+    this.id = this.customerSelect['id'];
     this.firstName = this.customerSelect['firstname'];
     this.lastName = this.customerSelect['lastname'];
     this.email = this.customerSelect['email'];
@@ -66,10 +71,8 @@ export class RegisterDetailsComponent implements OnInit {
   }
 
 
-
+  // update a customer
   upDateCustomer(id: number, firstName: string, lastName: string, email: string) {
-
-
     console.log(id, firstName, lastName, email);
     this.submitted = true;
     if (this.formCustomerUpdate.invalid || this.captchaResponse == '') {
@@ -78,14 +81,11 @@ export class RegisterDetailsComponent implements OnInit {
 
       this._RegisterDetailsService.upDateCustomer(id, firstName, lastName, email).subscribe(result => {
         let res = result;
-
-
         if (res != null) {
           console.log(res);
-
           console.log('guardado');
-          location.reload();
-
+         // window.location.replace('http://localhost/api-laravel/apiRest/public/frontLaravel/');
+           location.reload();
         } else {
           res = {};
         }
@@ -93,35 +93,27 @@ export class RegisterDetailsComponent implements OnInit {
         console.log(JSON.stringify(error));
 
       });
-
     }
-
-
   }
 
+  // delete a customer
   deleteCustomer(id: number) {
-
     this._RegisterDetailsService.deleteCustomer(id).subscribe(result => {
         console.log('fue eliminado');
-
         location.reload();
-
+        //window.location.replace('http://localhost/api-laravel/apiRest/public/frontLaravel/');
     }, error => {
       console.log(JSON.stringify(error));
 
     });
 
   }
-
-
-
-
-
+  // resolve captcha
   resolved(captchaResponse: string) {
     this.captchaResponse = captchaResponse;
     console.log(`Resolved captcha with response: ${this.captchaResponse}`);
   }
-
+  // reset validator
   onReset() {
     this.submitted = false;
     this.formCustomerUpdate.reset();

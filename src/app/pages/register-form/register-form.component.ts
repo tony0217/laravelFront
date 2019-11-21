@@ -22,6 +22,7 @@ declare function toastr();
 })
 export class RegisterFormComponent implements OnInit {
 
+  // vars
   firstName: string;
   lastName: string;
   email: string;
@@ -40,12 +41,12 @@ export class RegisterFormComponent implements OnInit {
 
 
   }
-
+  // return validator
   get f() { return this.formCustomer.controls; }
 
+
+  // created customer
   addCustomer(firstName: string, lastName: string, email: string) {
-
-
     this.submitted = true;
     if (this.formCustomer.invalid || this.captchaResponse == '') {
       return;
@@ -68,16 +69,17 @@ export class RegisterFormComponent implements OnInit {
     }
 
   }
-
+  // resolved captcha
   resolved(captchaResponse: string) {
     this.captchaResponse = captchaResponse;
     console.log(`Resolved captcha with response: ${this.captchaResponse}`);
   }
-
+  // reset validator
   onReset() {
     this.submitted = false;
     this.formCustomer.reset();
   }
+
   ngOnInit() {
     init_plugins();
     toastr();
