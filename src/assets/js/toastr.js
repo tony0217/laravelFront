@@ -5,13 +5,13 @@ Email: niravjoshi87@gmail.com
 File: js
 */
 
-
+function toastr(){
 
 $(function() {
     "use strict";
       $(".tst1").click(function(){
            $.toast({
-            heading: 'RECORD UPDATED ',
+            heading: 'RECORD UPDATED',
             text: '',
             position: 'top-right',
             loaderBg:'#ff6849',
@@ -62,3 +62,4 @@ $(function() {
 });
 
 
+}

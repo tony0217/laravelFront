@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 
 
 declare function init_plugins();
+declare function toastr();
 
 
 
@@ -132,6 +133,7 @@ export class RegisterDetailsComponent implements OnInit {
   ngOnInit() {
 
     init_plugins();
+    toastr();
     this.getCustomers();
   }
 

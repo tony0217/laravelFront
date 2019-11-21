@@ -12,6 +12,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
 declare function init_plugins();
 
+declare function toastr();
+
 
 @Component({
   selector: 'app-register-form',
@@ -78,6 +80,7 @@ export class RegisterFormComponent implements OnInit {
   }
   ngOnInit() {
     init_plugins();
+    toastr();
 
   }
 

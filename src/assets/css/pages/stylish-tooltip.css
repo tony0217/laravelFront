@@ -240,7 +240,7 @@ Stylish tooltip
   transition-timing-function: ease, cubic-bezier(0.6, 0, 0.4, 1); }
 
 .tooltip-content3::after {
-  content: '';
+  content: 'hola';
   position: absolute;
   width: 16px;
   height: 16px;
