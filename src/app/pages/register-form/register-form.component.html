@@ -1,37 +1,61 @@
+<div class="preloader">
+  <div class="loader">
+      <div class="loader__figure"></div>
+      <p class="loader__label">BVentures</p>
+  </div>
+</div>
+
+
 <div class="row  mt-4">
   <div class="col-6 mx-auto">
     <div class="card">
       <div class="card-body">
 
 
-            <h4 class="card-title">ADD CUSTOMER</h4>
-            <h6 class="card-subtitle">add New Customer</h6>
-            <form class="form p-t-20" novalidate>
+            <h4 class="ribbon ribbon-bookmark ribbon-success">ADD CUSTOMER</h4>
+            <h6 class="ribbon-content">add New Customer</h6>
+            <form class="form p-t-20" [formGroup]='formCustomer'  (ngSubmit)="addCustomer(firstName, lastName, email)" >
 
                 <div class="form-group">
-                    <label for="exampleInputuname">Name <span class="text-danger">*</span></label>
+                    <label for="exampleInputuname">FirstName <span class="text-danger">*</span></label>
                     <div class="input-group controls">
                         <div class="input-group-addon"><i class="ti-user"></i></div>
-                        <input type="text" class="form-control"  placeholder="Name" required data-validation-required-message="This field is required">
+                        <input  formControlName="firstName"  [(ngModel)]="firstName"  type="text"[ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"  class="form-control"  placeholder="FirstName" >
+                        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                          <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                      </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputuname">LastName </label>
                     <div class="input-group ">
                         <div class="input-group-addon"><i class="ti-user"></i></div>
-                        <input type="text" class="form-control" placeholder="LastName">
+                        <input  formControlName="lastName"  [(ngModel)]="lastName"  type="text"  class="form-control"  placeholder="LastName" >
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address<span class="text-danger">*</span></label>
                     <div class="input-group controls">
                         <div class="input-group-addon"><i class="ti-email"></i></div>
-                        <input type="email" class="form-control"  placeholder="Enter email" required data-validation-required-message="This field is required" data-validation-regex-regex="([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})" data-validation-regex-message="Enter Valid Email">
+                        <input formControlName="email"  [(ngModel)]="email"  type="email"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" class="form-control"  placeholder="Enter email" required>
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">Email is required</div>
+                          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                        </div>
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
-                <button [routerLink]="['/']" type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                <div class="form-group">
+                  <re-captcha (resolved)="resolved($event)" siteKey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></re-captcha>
+                  <div *ngIf="captchaResponse==''" >
+                    <div *ngIf="captchaResponse==''"><span style="color:red">re-captcha is required </span> </div>
+               </div>
+
+
+                </div>
+
+                <button  type="submit" class="tst3 btn btn-success waves-effect waves-light m-r-10">Submit</button>
+                <button (click)="onReset()" [routerLink]="['/']" class="btn btn-inverse waves-effect waves-light">Cancel</button>
             </form>
 
 

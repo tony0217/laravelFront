@@ -1,266 +1,192 @@
-<!-- <div class="row">
-  <div class="col-12">
-    <div class="card">
-      <div class="card-body">
-
-        <div class="col-12">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Informacion de Clientes</h4>
-              <h6 class="card-subtitle">En esta tabla esta toda la informacion relaionada con los clientes
-              </h6>
-              <div class="table-responsive">
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th>Nombre</th>
-                      <th>Apellido</th>
-                      <th>Correo</th>
-                      <th>Telefono</th>
-                      <th class="text-nowrap">Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Anthony</td>
-                      <td>
-                       Henriquez
-                      </td>
-                      <td>ajhen217@gmail.com</td>
-                      <td>3012677021</td>
-                      <td class="text-nowrap">
-                        <a  data-toggle="tooltip" data-original-title="Editar"> <i
-                            class="fa fa-pencil text-inverse m-r-10"></i> </a>
-
-                        <a data-toggle="tooltip" data-original-title="Eliminar"> <i
-                            class="fa fa-close text-danger"></i> </a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-      </div>
-    </div>
-  </div> -->
-
+<div class="preloader">
+  <div class="loader">
+      <div class="loader__figure"></div>
+      <p class="loader__label">BVentures</p>
+  </div>
+</div>
 
   <div class="row">
       <div class="col-12">
           <div class="card">
               <div class="card-body">
-                  <h4 class="card-title">CUSTOMER MANAGEMENT</h4>
-                  <h6 class="card-subtitle">Data Customers </h6>
-                  <div class="table-responsive m-t-40">
+
+
+                      <div class="ribbon-wrapper card">
+                          <h4 class="ribbon ribbon-bookmark ribbon-info">CUSTOMER MANAGEMENT</h4>
+                          <h6 class="card-subtitle"> Data Customer</h6>
+                      </div>
+
+                  <div *ngIf="customerLength" class="table-responsive">
+
+                      <div class="col-3 ml-auto pb-1">
+                          <div class="input-group">
+                              <div class="input-group-addon"><i class="ti-search"></i></div>
+
+                               <input type="text" class="form-control" placeholder="Search"[(ngModel)]="searchData" [ngModelOptions]="{standalone: true}">
+                          </div>
+                      </div>
+
                       <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                           <thead>
                               <tr>
-                                  <th>Name</th>
-                                  <th>Position</th>
-                                  <th>Office</th>
-                                  <th>Age</th>
-                                  <th>Start date</th>
-                                  <th class="text-nowrap">Action</th>
+                                  <th>FirstName</th>
+                                  <th>LastName</th>
+                                  <th>Email</th>
+                                  <th>Creation_date</th>
+                                  <th>Update_date</th>
+                                  <th class="text-nowrap">Acction</th>
                               </tr>
                           </thead>
                           <tfoot>
                               <tr>
-                                  <th>Name</th>
-                                  <th>Position</th>
-                                  <th>Office</th>
-                                  <th>Age</th>
-                                  <th>Start date</th>
-                                  <th>Salary</th>
+                                  <th>FirstName</th>
+                                  <th>LastName</th>
+                                  <th>Email</th>
+                                  <th>Creation_date</th>
+                                  <th>Update_date</th>
+                                  <th class="text-nowrap">Acction</th>
                               </tr>
                           </tfoot>
                           <tbody>
-                              <tr>
-                                  <td>Tiger Nixon</td>
-                                  <td>System Architect</td>
-                                  <td>Edinburgh</td>
-                                  <td>61</td>
-                                  <td>2011/04/25</td>
-                                  <td>$320,800</td>
-                              </tr>
-                              <tr>
-                                  <td>Garrett Winters</td>
-                                  <td>Accountant</td>
-                                  <td>Tokyo</td>
-                                  <td>63</td>
-                                  <td>2011/07/25</td>
-                                  <td>$170,750</td>
-                              </tr>
-                              <tr>
-                                  <td>Ashton Cox</td>
-                                  <td>Junior Technical Author</td>
-                                  <td>San Francisco</td>
-                                  <td>66</td>
-                                  <td>2009/01/12</td>
-                                  <td>$86,000</td>
-                              </tr>
-                              <tr>
-                                  <td>Cedric Kelly</td>
-                                  <td>Senior Javascript Developer</td>
-                                  <td>Edinburgh</td>
-                                  <td>22</td>
-                                  <td>2012/03/29</td>
-                                  <td>$433,060</td>
-                              </tr>
 
-                              <tr>
-                                  <td>Cedric Kelly</td>
-                                  <td>Senior Javascript Developer</td>
-                                  <td>Edinburgh</td>
-                                  <td>22</td>
-                                  <td>2012/03/29</td>
-                                  <td>$433,060</td>
-                              </tr>
-                              <tr>
-                                  <td>Cedric Kelly</td>
-                                  <td>Senior Javascript Developer</td>
-                                  <td>Edinburgh</td>
-                                  <td>22</td>
-                                  <td>2012/03/29</td>
-                                  <td>$433,060</td>
-                              </tr>
-                              <tr>
-                                  <td>Cedric Kelly</td>
-                                  <td>Senior Javascript Developer</td>
-                                  <td>Edinburgh</td>
-                                  <td>22</td>
-                                  <td>2012/03/29</td>
-                                  <td>$433,060</td>
-                              </tr>
-                              <tr>
-                                  <td>Sakura Yamamoto</td>
-                                  <td>Support Engineer</td>
-                                  <td>Tokyo</td>
-                                  <td>37</td>
-                                  <td>2009/08/19</td>
-                                  <td>$139,575</td>
-                              </tr>
-                              <tr>
-                                  <td>Thor Walton</td>
-                                  <td>Developer</td>
-                                  <td>New York</td>
-                                  <td>61</td>
-                                  <td>2013/08/11</td>
-                                  <td>$98,540</td>
-                              </tr>
-                              <tr>
-                                  <td>Finn Camacho</td>
-                                  <td>Support Engineer</td>
-                                  <td>San Francisco</td>
-                                  <td>47</td>
-                                  <td>2009/07/07</td>
-                                  <td>$87,500</td>
-                              </tr>
-                              <tr>
-                                  <td>Serge Baldwin</td>
-                                  <td>Data Coordinator</td>
-                                  <td>Singapore</td>
-                                  <td>64</td>
-                                  <td>2012/04/09</td>
-                                  <td>$138,575</td>
-                              </tr>
-                              <tr>
-                                  <td>Zenaida Frank</td>
-                                  <td>Software Engineer</td>
-                                  <td>New York</td>
-                                  <td>63</td>
-                                  <td>2010/01/04</td>
-                                  <td>$125,250</td>
-                              </tr>
-                              <tr>
-                                  <td>Zorita Serrano</td>
-                                  <td>Software Engineer</td>
-                                  <td>San Francisco</td>
-                                  <td>56</td>
-                                  <td>2012/06/01</td>
-                                  <td>$115,000</td>
-                              </tr>
-                              <tr>
-                                  <td>Jennifer Acosta</td>
-                                  <td>Junior Javascript Developer</td>
-                                  <td>Edinburgh</td>
-                                  <td>43</td>
-                                  <td>2013/02/01</td>
-                                  <td>$75,650</td>
-                              </tr>
-                              <tr>
-                                  <td>Cara Stevens</td>
-                                  <td>Sales Assistant</td>
-                                  <td>New York</td>
-                                  <td>46</td>
-                                  <td>2011/12/06</td>
-                                  <td>$145,600</td>
-                              </tr>
-                              <tr>
-                                  <td>Hermione Butler</td>
-                                  <td>Regional Director</td>
-                                  <td>London</td>
-                                  <td>47</td>
-                                  <td>2011/03/21</td>
-                                  <td>$356,250</td>
-                              </tr>
-                              <tr>
-                                  <td>Lael Greer</td>
-                                  <td>Systems Administrator</td>
-                                  <td>London</td>
-                                  <td>21</td>
-                                  <td>2009/02/27</td>
-                                  <td>$103,500</td>
-                              </tr>
-                              <tr>
-                                  <td>Jonas Alexander</td>
-                                  <td>Developer</td>
-                                  <td>San Francisco</td>
-                                  <td>30</td>
-                                  <td>2010/07/14</td>
-                                  <td>$86,500</td>
-                              </tr>
-                              <tr>
-                                  <td>Shad Decker</td>
-                                  <td>Regional Director</td>
-                                  <td>Edinburgh</td>
-                                  <td>51</td>
-                                  <td>2008/11/13</td>
-                                  <td>$183,000</td>
-                              </tr>
-                              <tr>
-                                  <td>Michael Bruce</td>
-                                  <td>Javascript Developer</td>
-                                  <td>Singapore</td>
-                                  <td>29</td>
-                                  <td>2011/06/27</td>
-                                  <td>$183,000</td>
-                              </tr>
-                              <tr>
-                                  <td>Donna Snider</td>
-                                  <td>Customer Support</td>
-                                  <td>New York</td>
-                                  <td>27</td>
-                                  <td>2011/01/25</td>
-                                  <td>$112,000</td>
-                              </tr>
+                              <tr *ngFor="let customer of customerList| filter:searchData |paginate: {
+                                itemsPerPage: 4,
+                                currentPage: p };let i = index">
 
+                                  <td>{{customer.firstname|uppercase}}</td>
+                                  <td>{{customer.lastname|uppercase}}</td>
+                                  <td>{{customer.email}}</td>
+                                  <td>{{customer.created|date:'MMM d y h:mm:ss a'}}</td>
+                                  <td>{{customer.modified|date:'MMM d y h:mm:ss a'}}</td>
+                                  <td class="text-nowrap">
+                                      <a (click)="selectCustomer(customer)" data-toggle="modal" data-target="#responsive-modal"> <i
+                                          class="fa fa-pencil text-inverse m-r-10"></i> </a>
 
+                                      <a (click)="selectCustomer(customer)" data-toggle="modal" data-target="#exampleModal"> <i
+                                          class="fa fa-close text-danger"></i> </a>
+                                    </td>
+
+                              </tr>
 
 
                           </tbody>
+
                       </table>
+                      <div class=" col-md-1 col-xs-12 ml-auto ">
+                        <span class="text-muted font-weight-light" *ngIf="customerLength">{{customerLength}} Results</span>
+                      </div>
+
+                      <div class="col-md-4  col-xs-6 mx-auto" >
+                        <pagination-controls
+                        directionLinks="true"
+                        responsive="true"
+                        (pageChange)="p = $event"></pagination-controls>
+                      </div>
+
+
+
+
                   </div>
+
+                    <div *ngIf="customerLength== 0" class="col-3 mx-auto p-5"><h1>No Results</h1> </div>
               </div>
           </div>
 
-       |
+
       </div>
   </div>
+
+              <div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+
+
+                              <h4 class="ribbon ribbon-bookmark ribbon-info">Update Customer</h4>
+                              <button type="button" class="close ml-auto" data-dismiss="modal" aria-hidden="true">×</button>
+                          </div>
+                          <div class="modal-body">
+                              <form class="form p-t-20" [formGroup]='formCustomerUpdate'  (ngSubmit)="upDateCustomer(customerSelect.id,firstName, lastName, email)" >
+
+                                  <div class="form-group">
+                                      <label for="exampleInputuname">FirstName <span class="text-danger">*</span></label>
+                                      <div class="input-group controls">
+                                          <div class="input-group-addon"><i class="ti-user"></i></div>
+                                          <input [value]="firstname"  formControlName="firstName"  [(ngModel)]="firstName"  type="text"[ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"  class="form-control"  placeholder="FirstName" >
+                                          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                        </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="exampleInputuname">LastName </label>
+                                      <div class="input-group ">
+                                          <div class="input-group-addon"><i class="ti-user"></i></div>
+                                          <input [value]="lastname" formControlName="lastName"  [(ngModel)]="lastName"  type="text"  class="form-control"  placeholder="LastName" >
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="exampleInputEmail1">Email address<span class="text-danger">*</span></label>
+                                      <div class="input-group controls">
+                                          <div class="input-group-addon"><i class="ti-email"></i></div>
+                                          <input [value]="email" formControlName="email"  [(ngModel)]="email"  type="email"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" class="form-control"  placeholder="Enter email" required>
+                                          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                            <div *ngIf="f.email.errors.required">Email is required</div>
+                                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <re-captcha (resolved)="resolved($event)" siteKey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></re-captcha>
+                                    <div *ngIf="captchaResponse==''" >
+                                      <div *ngIf="captchaResponse==''"><span style="color:red">re-captcha is required </span> </div>
+                                 </div>
+
+
+                                  </div>
+                                  <div class="modal-footer">
+
+                                      <button (click)="onReset()" type="button" class="btn btn-inverse waves-effect waves-light" data-dismiss="modal">Close</button>
+                                      <button  type="submit" [ngClass]="{ 'tst1':toastMs}" class=" btn btn-info waves-effect waves-light m-r-10">Update</button>
+                                  </div>
+
+
+                              </form>
+
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+
+                          <div class="modal-body ribbon-wrapper card">
+
+                                  <div class="ribbon ribbon-bookmark ribbon-danger">Delete {{customerSelect.firstname}} ?</div>
+                                  <p class="ribbon-content">  Are you sure you want to delete?</p>
+
+                                  <div class="row">
+
+                                        <div class="col-12 ml-auto">
+                                            <button  (click)="deleteCustomer(customerSelect.id)" type="button" class="tst4 btn btn-danger">Delete</button>
+                                        </div>
+                                        <hr>
+                                        <div class="col-3 ml-auto ">
+                                            <button type="button" class="btn btn-inverse waves-effect waves-light"  data-dismiss="modal">Close</button>
+
+                                        </div>
+                                  </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- /.modal -->
+
+
 

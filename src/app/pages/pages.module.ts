@@ -7,6 +7,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { RecaptchaModule } from 'ng-recaptcha';
+
+
 
 
 @NgModule({
@@ -16,20 +23,28 @@ import { SharedModule } from '../shared/shared.module';
      RegisterDetailsComponent,
      DashboardComponent],
 
+     imports: [
+      CommonModule,
+      RouterModule,
+      SharedModule,
+      HttpClientModule,
+      NgxPaginationModule,
+      Ng2SearchPipeModule,
+      FormsModule, // añadir formularios y modelos
+      ReactiveFormsModule,
+      RecaptchaModule
+
+    ],
+
   exports:[
 
     PagesComponent,
     RegisterFormComponent,
     RegisterDetailsComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
 
-  imports: [
-    CommonModule,
-    RouterModule,
-    SharedModule
 
-  ]
 
 })
 export class PagesModule { }

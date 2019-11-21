@@ -160,75 +160,77 @@ $(function() {
 });
 
 // tables
-$(document).ready(function() {
+// $(document).ready(function() {
 
 
-  $('#example12').DataTable();
+//   $('#example12').DataTable();
+//   var someTableDT = $("#some-table").on("draw.dt", function () {
+//     $(this).find(".dataTables_empty").parents('tbody').empty();
+// }).DataTable(/*init object*/);
+
+//   $(document).ready(function() {
+//       var table = $('#example12').DataTable({
+//           "columnDefs": [{
+//               "visible": false,
+//               "targets": 2
+//           }],
+
+//           "bDestroy": true,
+
+//           "bProcessing": false,
+//           "order": [
+//               [2, 'asc']
+//           ],
+//           "displayLength": 25,
+//           "drawCallback": function(settings) {
+//               var api = this.api();
+//               var rows = api.rows({
+//                   page: 'current'
+//               }).nodes();
+//               var last = null;
+//               api.column(2, {
+//                   page: 'current'
+//               }).data().each(function(group, i) {
+//                   if (last !== group) {
+//                       $(rows).eq(i).before('<tr class="group"> <td colspan="4">' + group + '</td></tr>');
+//                       last = group;
+//                   }
+//               });
+//           }
 
 
-  $(document).ready(function() {
-      var table = $('#example12').DataTable({
-          "columnDefs": [{
-              "visible": false,
-              "targets": 2
-          }],
-
-          "bDestroy": true,
-
-          "bProcessing": false,
-          "order": [
-              [2, 'asc']
-          ],
-          "displayLength": 25,
-          "drawCallback": function(settings) {
-              var api = this.api();
-              var rows = api.rows({
-                  page: 'current'
-              }).nodes();
-              var last = null;
-              api.column(2, {
-                  page: 'current'
-              }).data().each(function(group, i) {
-                  if (last !== group) {
-                      $(rows).eq(i).before('<tr class="group"> <td colspan="5">' + group + '</td></tr>');
-                      last = group;
-                  }
-              });
-          }
-
-
-      });
+//       });
 
 
 
-      // Order by the grouping
-      $('#example12 tbody').on('click', 'tr.group', function() {
-          var currentOrder = table.order()[0];
-          if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
-              table.order([2, 'desc']).draw();
-          } else {
-              table.order([2, 'asc']).draw();
-          }
-      });
-  });
-});
-$('#example23').DataTable({
-  dom: 'lBfrtip',
-  buttons: [
-      'copy', 'csv', 'excel', 'pdf', 'print'
-  ],
-  "bDestroy": true,
+//       // Order by the grouping
+//       $('#example12 tbody').on('click', 'tr.group', function() {
+//           var currentOrder = table.order()[0];
+//           if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+//               table.order([2, 'desc']).draw();
+//           } else {
+//               table.order([2, 'asc']).draw();
+//           }
+//       });
+//   });
+// });
+// $('#example23').DataTable({
+//   dom: 'lBfrtip',
+//   buttons: [
+//       'copy', 'csv', 'excel', 'pdf', 'print'
+//   ],
+//   "bDestroy": true,
 
-  // language: {
-  //   paginate: {
-  //     previous: "Anterior",
-  //     next: "Siguiente",
-  //   },
-  //   "lengthMenu": " No.Registros  _MENU_",
-  //   "search": "Buscar en los registros:",
-  //   "info": "Resultado _PAGE_ de _PAGES_ "
-  // }
+//   // language: {
+//   //   paginate: {
+//   //     previous: "Anterior",
+//   //     next: "Siguiente",
+//   //   },
+//   //   "lengthMenu": " No.Registros  _MENU_",
+//   //   "search": "Buscar en los registros:",
+//   //   "info": "Resultado _PAGE_ de _PAGES_ "
+//   // }
 
-});
+// });
 
 }
